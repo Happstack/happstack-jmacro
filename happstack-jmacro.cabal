@@ -1,12 +1,12 @@
 Name:                happstack-jmacro
-Version:             6.0.2
+Version:             6.0.3
 Synopsis:            Support for using JMacro with Happstack
 Homepage:            http://www.happstack.com/
 License:             BSD3
 License-file:        LICENSE
 Author:              Jeremy Shaw
 Maintainer:          jeremy@n-heptane.com
--- Copyright:           
+-- Copyright:
 Stability:           Provisional
 Category:            Web
 Build-type:          Simple
