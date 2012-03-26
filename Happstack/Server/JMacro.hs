@@ -11,7 +11,8 @@ import qualified Data.ByteString.Char8 as S
 import Data.ByteString.Lazy.UTF8       as LB
 import Happstack.Server                (ToMessage(..))
 import Language.Javascript.JMacro      (JStat(..), renderJs)
-    
+import Text.PrettyPrint                (Style(mode), Mode(OneLineMode), style, renderStyle)
+
 instance ToMessage JStat where
     toContentType _  = S.pack "text/javascript; charset=UTF-8"
-    toMessage     js = LB.fromString (show $ renderJs js)
+    toMessage     js = LB.fromString . renderStyle (style { mode = OneLineMode }) . renderJs $ js
