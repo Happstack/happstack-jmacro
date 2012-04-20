@@ -4,7 +4,7 @@
 --
 -- It provides the instance,
 --
--- > instance ToMessage JStat 
+-- > instance ToMessage JStat
 --
 -- Which will serve a 'JStat' value as @text/javascript; charset=UTF-8@.
 -- The rendered JavaScript will be wrapped in an anonymous function that is
