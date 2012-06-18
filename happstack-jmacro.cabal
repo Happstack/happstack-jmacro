@@ -8,7 +8,7 @@ Author:              Jeremy Shaw
 Maintainer:          jeremy@n-heptane.com
 -- Copyright:
 Stability:           Provisional
-Category:            Web
+Category:            Web, Happstack
 Build-type:          Simple
 Cabal-version:       >=1.6
 
