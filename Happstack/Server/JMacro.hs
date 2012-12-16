@@ -16,17 +16,15 @@ module Happstack.Server.JMacro (jmResponse) where
 
 import qualified Data.ByteString           as B
 import qualified Data.ByteString.Char8     as S
-import qualified Data.ByteString.Lazy.UTF8 as LB
 
-import Data.ByteString.Base64.URL (encode)
-import Data.Digest.Adler32        (adler32)
-import Data.Serialize             (runPut, putWord32le)
-import Happstack.Server           (ToMessage(..), ServerMonad, Request(Request, rqUri), Response, askRq)
-import Language.Javascript.JMacro (JStat(..), renderJs, renderPrefixJs, jmacro, jLam, toStat)
-import Text.PrettyPrint           (Style(mode), Mode(OneLineMode), style, renderStyle)
-
-lineStyle :: Style
-lineStyle = style { mode = OneLineMode }
+import Data.ByteString.Base64.URL   (encode)
+import Data.Digest.Adler32          (adler32)
+import Data.Serialize               (runPut, putWord32le)
+import qualified Data.Text.Lazy.Encoding as T
+import Happstack.Server             (ToMessage(..), ServerMonad, Request(Request, rqUri), Response, askRq)
+import Language.Javascript.JMacro   (JStat(..), renderJs, renderPrefixJs, jmacro, jLam, toStat)
+import Text.PrettyPrint.Leijen.Text (Doc, displayT, renderOneLine)
+-- import Text.PrettyPrint           (Style(mode), Mode(OneLineMode), style, renderStyle)
 
 mkId :: String -> String
 mkId = S.unpack
@@ -47,14 +45,14 @@ data PrefixedJStat = PrefixedJStat String JStat
 instance ToMessage JStat where
     toContentType _ = S.pack "text/javascript; charset=UTF-8"
     toMessage    js =
-        LB.fromString . renderStyle lineStyle . renderJs $ scoped
+        T.encodeUtf8 . displayT . renderOneLine . renderJs $ scoped
       where
         scoped = [jmacro| (function { `(js)`; })(); |]
 
 instance ToMessage PrefixedJStat where
     toContentType _ = S.pack "text/javascript; charset=UTF-8"
     toMessage (PrefixedJStat prefix js) =
-        LB.fromString . renderStyle lineStyle . renderPrefixJs (mkId prefix) $ js
+        T.encodeUtf8 . displayT . renderOneLine . renderPrefixJs (mkId prefix) $ js
 
 -- | Render a 'JStat' into a 'Response', saturating the variable names with
 -- a hash computed from the 'rqUri'.  Unlike the 'ToMessage' instance for
