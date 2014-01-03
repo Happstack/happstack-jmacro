@@ -1,5 +1,5 @@
 Name:                happstack-jmacro
-Version:             7.0.6
+Version:             7.0.7
 Synopsis:            Support for using JMacro with Happstack
 Homepage:            http://www.happstack.com/
 License:             BSD3
@@ -24,5 +24,5 @@ Library
      happstack-server  >= 6.4 && <7.4,
      jmacro            == 0.6.*,
      wl-pprint-text    == 1.1.*,
-     text              >= 0.9 && < 0.12,
+     text              >= 0.9 && < 1.1,
      utf8-string       == 0.3.*
