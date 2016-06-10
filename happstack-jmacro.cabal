@@ -1,6 +1,7 @@
 Name:                happstack-jmacro
 Version:             7.0.11
 Synopsis:            Support for using JMacro with Happstack
+Description:         Support for using JMacro with Happstack
 Homepage:            http://www.happstack.com/
 License:             BSD3
 License-file:        LICENSE
