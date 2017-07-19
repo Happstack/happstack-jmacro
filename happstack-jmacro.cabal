@@ -1,5 +1,5 @@
 Name:                happstack-jmacro
-Version:             7.0.11
+Version:             7.0.12
 Synopsis:            Support for using JMacro with Happstack
 Description:         Support for using JMacro with Happstack
 Homepage:            http://www.happstack.com/
@@ -22,7 +22,7 @@ Library
      bytestring        >= 0.9 && < 0.11,
      cereal            >= 0.3 && < 0.6,
      digest            == 0.0.*,
-     happstack-server  >= 6.4 && < 7.5,
+     happstack-server  >= 6.4 && < 7.6,
      jmacro            == 0.6.*,
      wl-pprint-text    == 1.1.*,
      text              >= 0.9 && < 1.3,
