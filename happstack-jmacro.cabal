@@ -1,5 +1,5 @@
 Name:                happstack-jmacro
-Version:             7.0.12
+Version:             7.0.12.1
 Synopsis:            Support for using JMacro with Happstack
 Description:         Support for using JMacro with Happstack
 Homepage:            http://www.happstack.com/
@@ -12,7 +12,7 @@ Stability:           Provisional
 Category:            Web, Happstack
 Build-type:          Simple
 Cabal-version:       >=1.6
-tested-with:         GHC == 7.6.3, GHC == 7.8.4, GHC == 7.10.3, GHC == 8.0.1
+tested-with:         GHC == 7.6.3, GHC == 7.8.4, GHC == 7.10.3, GHC == 8.0.1, GHC == 8.2.2, GHC == 8.4.1
 
 Library
   Exposed-modules:     Happstack.Server.JMacro
@@ -24,7 +24,7 @@ Library
      digest            == 0.0.*,
      happstack-server  >= 6.4 && < 7.6,
      jmacro            == 0.6.*,
-     wl-pprint-text    == 1.1.*,
+     wl-pprint-text    >= 1.1 && < 1.3,
      text              >= 0.9 && < 1.3,
      utf8-string       >= 0.3 && < 1.1
 
