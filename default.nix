@@ -4,9 +4,9 @@
 }:
 mkDerivation {
   pname = "happstack-jmacro";
-  version = "7.0.10";
+  version = "7.0.12.1";
   src = ./.;
-  buildDepends = [
+  libraryHaskellDepends = [
     base base64-bytestring bytestring cereal digest happstack-server
     jmacro text utf8-string wl-pprint-text
   ];
